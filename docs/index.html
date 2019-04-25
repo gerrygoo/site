@@ -1,76 +1,32 @@
-<style>
-    @font-face {
-        font-family: 'ushia';
-        src: url('theonlyexception-webfont.woff2') format('woff2'),
-        url('theonlyexception-webfont.woff') format('woff');
-        font-weight: normal;
-        font-style: normal;
-    }
-
-    @keyframes fadeIn {
-        from {
-            opacity: 0;
-        }
-        to {
-            opacity: 1;
-        }
-    }
-
-    body {
-        background-size: cover;
-        background-position: center center;
-        background-attachment: fixed;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-
-    }
-
-    h1 {
-        color: rgb(239, 183, 248);
-        font-family: ushia;
-        font-size: 8rem;
-        opacity: 0.5;
-    }
-
-    dl {
-        display: flex;
-        flex-direction: inherit;
-        margin-left: 3rem;
-    }
-
-    dt {
-        font-family: ushia;
-        font-size: 3rem;
-
-        animation-name: fadeIn;
-        animation-direction: alternate;
-        animation-duration: 3s;
-        animation-fill-mode: forwards;
-        animation-iteration-count: infinite;
-        animation-timing-function: ease-in;
-    }
-
-    dd {
-        font-family: ushia;
-        font-size: 2rem;
-    }
-</style>
-
-
+<!DOCTYPE html>
 <html>
+    <head>
+        <title>Flappy Bird Q-Learning</title>
+        <meta charset="utf-8" />
+        <link rel="stylesheet" href="/style/style.css" />
+        <meta name="viewport" content="initial-scale=1.0" />
+        <meta name="viewport" content="initial-scale=1.0" />
+        <script type="text/javascript" src="js/phaser.min.js"></script>
+        <script type="module" src="js/main.js"></script>
+    </head>
 
-<body background="DM_SH01.jpg">
-    <h1>ushia!</h1>
-
-    <dl>
-        <dt>hermosa</dt>
-
-        <dt>bonita</dt>
-
-        <dt>lindura</dt>
-    </dl>
-
-</body>
-
+    <body class="game">
+        <div id="gameDiv" class="inline" style="width:400px"></div>
+        <canvas id="tableCanvas" class="inline"></canvas>
+        <h2 id="max-value">Maximo: 0</h2>
+        <h2 id="mean-value">Promedio: 0</h2>
+        <h2 id="real-time">Tiempo real: 0</h2>
+        <h2 id="physics-time">Tiempo fisica: 0</h2>
+        <h2 id="slow-motion">Velocidad fisica: 0</h2>
+        <h2 id="learning-rate">Learning rate: 0</h2>
+        <h2 id="discount">Discount: 0</h2>
+        <h2 id="last-death">Last death: 0</h2>
+        <table id="q-table">
+            <tr>
+                <th>Estados (dx|dy)</th>
+                <th>Accion Saltar</th>
+                <th>Accion No Saltar</th>
+            </tr>
+        </table>
+    </body>
 </html>
