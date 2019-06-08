@@ -8,6 +8,16 @@ container.onmousemove = ({ clientX: x, clientY: y }) => {
     mouseLocation.x = x;
     mouseLocation.y = y;
 };
+container.addEventListener(
+    "touchmove",
+    ({ touches }) => {
+        if ( touches[0] ) {
+            const { clientX: x, clientY: y } = touches[0]
+            mouseLocation.x = x;
+            mouseLocation.y = y;
+        }
+    }
+);
 
 
 const cssToRealPixels = 1; // window.devicePixelRatio || 1; // SLOW
