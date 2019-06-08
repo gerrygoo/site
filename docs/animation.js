@@ -10,7 +10,7 @@ container.onmousemove = ({ clientX: x, clientY: y }) => {
 };
 
 
-const cssToRealPixels = (window.devicePixelRatio/2) || 1;
+const cssToRealPixels = 1; // window.devicePixelRatio || 1; // SLOW
 
 const resize = () => {
     const displayWidth  = Math.floor(canvas.clientWidth  * cssToRealPixels);
