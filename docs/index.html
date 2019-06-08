@@ -1,32 +1,16 @@
-<!DOCTYPE html>
 <html>
-    <head>
-        <title>Flappy Bird Q-Learning</title>
-        <meta charset="utf-8" />
-        <link rel="stylesheet" href="/style/style.css" />
-        <meta name="viewport" content="initial-scale=1.0" />
-        <meta name="viewport" content="initial-scale=1.0" />
-        <script type="text/javascript" src="js/phaser.min.js"></script>
-        <script type="module" src="js/main.js"></script>
-    </head>
+<head>
+    <meta charset="utf-8"/>
+    <link rel="stylesheet" href="style.css" />
+    <title>Gerry</title>
+</head>
 
-    <body class="game">
-        <div id="gameDiv" class="inline" style="width:400px"></div>
-        <canvas id="tableCanvas" class="inline"></canvas>
-        <h2 id="max-value">Maximo: 0</h2>
-        <h2 id="mean-value">Promedio: 0</h2>
-        <h2 id="real-time">Tiempo real: 0</h2>
-        <h2 id="physics-time">Tiempo fisica: 0</h2>
-        <h2 id="slow-motion">Velocidad fisica: 0</h2>
-        <h2 id="learning-rate">Learning rate: 0</h2>
-        <h2 id="discount">Discount: 0</h2>
-        <h2 id="last-death">Last death: 0</h2>
-        <table id="q-table">
-            <tr>
-                <th>Estados (dx|dy)</th>
-                <th>Accion Saltar</th>
-                <th>Accion No Saltar</th>
-            </tr>
-        </table>
-    </body>
-</html>
+<body>
+    <canvas id='c'></canvas>
+    <div class="container" id="container">
+        Welcome to gerry's page with handmade WebGL
+    </div>
+</body>
+
+<script type="text/javascript" src="animation.js"></script>
+<html>

@@ -1,0 +1,19 @@
+body {
+    margin: 0px;
+}
+canvas {
+    width: 100vw;
+    height: 100vh;
+    display: block;
+    position: absolute;
+    /*z-index: -1;*/
+}
+.container {
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+
+    display: flex;
+    justify-content: center;
+    color: white;
+}
