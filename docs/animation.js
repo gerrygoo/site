@@ -79,7 +79,7 @@ precision mediump float;
 #define iterations 17
 #define formuparam 0.53
 
-#define volsteps 18
+#define volsteps 15
 #define stepsize 0.050
 
 #define zoom   0.8
@@ -126,7 +126,7 @@ void main()
 
     //zoom
     float zooom = iTime/20.0;
-    from += forward* zooom;
+    from += forward * zooom;
     float sampleShift = mod( zooom, stepsize );
     float zoffset = -sampleShift;
     sampleShift /= stepsize;
@@ -140,17 +140,14 @@ void main()
         p = abs( vec3(tile) - mod(p, vec3(tile*2.0)) ); // tiling fold
         float
         pa,
-        a = pa =0.0;
+        a = pa = 0.0;
         for (int i = 0; i < iterations; i++) {
             p = abs(p)/dot(p,p)-formuparam; // the magic formula
             a += abs(length(p)-pa); // absolute sum of average change
             pa = length(p);
         }
 
-        a *= a*a; // add contrast
-
-        // brightens stuff up a bit
-        float s1 = s+zoffset;
+        a *= a * a * a; // add contrast
 
         // need closed form expression for this, now that we shift samples
         float fade = pow(distfading, max(0.0, float(r)-sampleShift));
@@ -163,14 +160,14 @@ void main()
         if( r == volsteps-1 ) fade *= sampleShift;
 
         v+=vec3(
-        0.05 * s1,
-        0.90 * s1*s1,
-        15.0 * s1*s1*s1*s1
+            0.05 * s,
+            1.50 * s*s,
+            10.0 * s*s*s*s
         ) * a * brightness * fade; // coloring based on distance
-        s+=stepsize;
+        s += stepsize;
     }
-    v = mix( vec3(length(v)), v, saturation); //color adjust
-    fragColor = vec4( v * 0.01, 1.0 );
+    v = mix( vec3(length(v)), v, saturation ); //color adjust
+    fragColor = vec4( v * 0.001, 1.0 );
 }
 `;
 

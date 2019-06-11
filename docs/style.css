@@ -8,12 +8,32 @@ canvas {
     position: absolute;
     /*z-index: -1;*/
 }
+.container,
+.container-title,
+.container-paragraph {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    color: white;
+}
 .container {
     width: 100vw;
     height: 100vh;
     position: absolute;
+}
 
-    display: flex;
-    justify-content: center;
-    color: white;
+.container-title {
+    font-family: 'Source Code Pro', monospace;
+    font-size: 4rem;
+
+    background-color: rgba(5, 0, 43, 0.3);
+    padding: 1em;
+
+    flex-direction: column;
+}
+
+.container-paragraph {
+    font-family: 'Source Code Pro', monospace;
+    font-size: 1rem;
 }
