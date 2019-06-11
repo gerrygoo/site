@@ -71,9 +71,9 @@ void main() {
 const fragmentShaderSource = `#version 300 es
 // https://www.shadertoy.com/view/XlfGRj
 #ifdef GL_FRAGMENT_PRECISION_HIGH
-precision highp float;
+    precision highp float;
 #else
-precision mediump float;
+    precision mediump float;
 #endif
 
 #define iterations 17
@@ -86,7 +86,6 @@ precision mediump float;
 #define tile   0.850
 #define speed  0.010
 #define brightness 0.0015
-#define darkmatter 0.300
 #define distfading 0.760
 #define saturation 0.800
 
@@ -96,32 +95,32 @@ uniform vec4    iMouse;       // mouse pixel coords. xy: current (if MLB down), 
 
 out vec4 fragColor;
 
-void main()
-{
+void main() {
     //get coords and direction
 
-    vec2 uv = gl_FragCoord.xy/iResolution.xy-.5;
+    vec2 uv = gl_FragCoord.xy/iResolution.xy - 0.5;
     uv.y *= iResolution.y/iResolution.x;
     vec3 dir = vec3(uv * zoom, 1.0);
-    float time = iTime * speed + 0.25;
 
-
-    vec3 from=vec3(1.0, 0.5, 0.5);
+    vec3 from = vec3(1.0, 0.5, 0.5);
 
 
     vec3 forward = vec3(0.0, 0.0, 1.0);
 
     //mouse rotation
     float a1 = 0.3;
-    mat2 rot1 = mat2(cos(a1),sin(a1),-sin(a1),cos(a1));
     float a2 = 0.6;
-    mat2 rot2 = mat2(cos(a2),sin(a2),-sin(a2),cos(a2));
-    dir.xz*=rot1;
-    forward.xz *= rot1;
-    dir.yz*=rot1;
-    forward.yz *= rot1;
 
-    // pan (dodgy)
+    mat2 rot1 = mat2(cos(a1),sin(a1),-sin(a1),cos(a1));
+    mat2 rot2 = mat2(cos(a2),sin(a2),-sin(a2),cos(a2));
+
+    dir.xz *= rot1;
+    forward.xz *= rot1;
+
+    dir.yz*=rot2;
+    forward.yz *= rot2;
+
+    // pan
     from += (iMouse.x/iResolution.x - 0.5) * vec3(-forward.z,0.0,forward.x);
 
     //zoom
@@ -133,8 +132,8 @@ void main()
 
     //volumetric rendering
     float s = 0.1;
-    vec3 v=vec3(0.0);
-    for (int r=0; r<volsteps; r++) {
+    vec3 v = vec3(0.0);
+    for (int r=0; r < volsteps; r++) {
         vec3 p = from + (s+zoffset) * dir;
 
         p = abs( vec3(tile) - mod(p, vec3(tile*2.0)) ); // tiling fold
@@ -159,7 +158,7 @@ void main()
         // fade in samples as they approach from the distance
         if( r == volsteps-1 ) fade *= sampleShift;
 
-        v+=vec3(
+        v += vec3(
             0.05 * s,
             1.50 * s*s,
             10.0 * s*s*s*s
@@ -182,12 +181,12 @@ const mouseUniformLocation = gl.getUniformLocation(program, "iMouse");
 
 const positionBuffer = gl.createBuffer();
 const positions = [
--1, -1,
-1, 1,
-1, -1,
-1, 1,
--1, 1,
--1, -1,
+    -1, -1,
+    1, 1,
+    1, -1,
+    1, 1,
+    -1, 1,
+    -1, -1,
 ];
 gl.bindBuffer(gl.ARRAY_BUFFER, positionBuffer);
 gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(positions), gl.STATIC_DRAW);
@@ -199,11 +198,7 @@ const positionAttributeLocation = gl.getAttribLocation(program, 'a_position');
 gl.enableVertexAttribArray(positionAttributeLocation);
 gl.vertexAttribPointer(positionAttributeLocation, 2, gl.FLOAT, false, 0, 0);
 
-
-
-
 resize();
-
 
 gl.clearColor(0, 0, 0, 0);
 gl.clear(gl.COLOR_BUFFER_BIT);
@@ -221,16 +216,9 @@ const draw = (time) => {
 }
 
 let start = null;
-let elapsed = 0, last = 0;
 function loop( timestamp ) {
     if (!start) start = timestamp;
-
-    elapsed = timestamp - last;
-
     draw(timestamp/1000);
-
-    if (elapsed > 1/60) window.requestAnimationFrame(loop);
-
-    last = timestamp;
+    window.requestAnimationFrame(loop);
 }
 window.requestAnimationFrame(loop);
