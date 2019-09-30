@@ -1,6 +1,7 @@
 body {
     margin: 0px;
 }
+
 canvas {
     width: 100vw;
     height: 100vh;
@@ -8,6 +9,7 @@ canvas {
     position: absolute;
     /*z-index: -1;*/
 }
+
 .container,
 .container-title,
 .container-paragraph {
@@ -36,4 +38,21 @@ canvas {
 .container-paragraph {
     font-family: 'Quicksand', sans-serif;
     font-size: 2rem;
+}
+
+.container-navbar {
+    font-family: 'Quicksand', sans-serif;
+    font-size: 2rem;
+}
+
+#toggle {
+    position: absolute;
+    left: 5px;
+    bottom: 5px;
+    background-color: rgba(5, 50, 255, 0.8);
+    padding: 5px;
+    margin: 3px;
+    border-radius: 100px;
+    font-family: 'Source Code Pro', monospace;
+    font-size: 10;
 }

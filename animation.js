@@ -215,10 +215,18 @@ const draw = (time) => {
     gl.drawArrays(gl.TRIANGLES, 0, positions.length/2);
 }
 
-let start = null;
-function loop( timestamp ) {
-    if (!start) start = timestamp;
-    draw(timestamp/1000);
+let animating = true;
+function loop( timestamp ) { 
+    if (animating) draw(timestamp/1000);
     window.requestAnimationFrame(loop);
 }
 window.requestAnimationFrame(loop);
+
+
+const onToggle = ({ target }) => {
+    target.innerHTML = animating ? 'get high' : 'come down';
+    animating = !animating;
+};
+const toggle = document.getElementById('toggle');
+toggle.onclick = onToggle;
+
