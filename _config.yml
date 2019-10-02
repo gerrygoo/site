@@ -1,2 +1,5 @@
 name: G
 markdown: kramdown
+collections:
+  notes:
+    output: true
