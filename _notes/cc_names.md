@@ -1,8 +1,11 @@
-##Clean Code: Names
+---
+about: Clean Code
+---
+## Clean Code: Names
 
 This chapter was all about naming things. It is argued that naming things is important because we name basically every piece of... physical thing we produce as programmers: variables with names inside functions with names inside classes with names inside files with names inside folders/modules with names. Once you realize that then it gets harder to argue against the importance of names. These were my notes:
 
-###Good (variable) names:
+### Good (variable) names:
 * Are **intention revealing** (answer questions)
 	* why it exists
 	* what it does
@@ -18,11 +21,11 @@ This chapter was all about naming things. It is argued that naming things is imp
 * Don't need *encodings* (such as `whatwasagoodname_str` or such as `whatwasagoodname_float`)
 * Don't need *mental mapping*
 
-###Naming things
+### Naming things
 * **Class** names should be **nouns** or noun-phrases
 * **Mehtod** names should be **verbs** or verb-phrases
 
-###Naming in general
+### Naming in general
 * Don't be cute *say what you mean, mean what you say*
 * Don't pun (have one word mean more than one thing)
 * When naming, `if` name exists in solution domain `then` use that name `else` it is ok to use name from problem domain

@@ -1,0 +1,17 @@
+---
+layout: default
+title: Notes
+---
+<h1>Notes</h1>
+{% for topic in site.data.topics.topics %}
+  <p>{{ topic }}</p> 
+  <ul>
+    {% assign fitered_notes = site.notes | where: 'about', topic %}
+    {% for note in fitered_notes %}
+      <div>
+        <h2><a href="{{ note.url }}">{{ note.url }}</a></h2>
+      </div>
+    {% endfor %}
+  </ul>
+{% endfor %}
+

@@ -1,4 +1,7 @@
-##Computer graphics special
+---
+about: Computer Graphics
+---
+## Computer graphics special
 
 Ok, maybe this is not a 'special' post as much as it is.. that I was unable to follow the study schedule today. But I did study something. And I did learn something.
 

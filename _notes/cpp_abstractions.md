@@ -1,5 +1,8 @@
-##C++: Abstraction mechanisms
-###Basic classes
+---
+about: cpp
+---
+## C++: Abstraction mechanisms
+### Basic classes
 * Concrete: 'just like built in types'
 	* user would recompile if representation changes in a significant way
 	* representation is part of definition
@@ -43,7 +46,7 @@
 	* move assignment operator  
 * `=delete` to suppress operations like copy and move for class hierarchy when object members are unknown given a pointer to a base.  
 
-###Templates
+### Templates
 'A class or a function that is parametrized with a set of types or values'. A compile-time mechanism (no runtime overhead).  
 
 * Parametrized types

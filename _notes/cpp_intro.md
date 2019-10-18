@@ -1,3 +1,6 @@
+---
+about: cpp
+---
 ## C++: Intro
 ### Super basics
 * C++ is a compiled language

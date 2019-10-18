@@ -1,4 +1,7 @@
-##C++ : Preface
+---
+about: cpp
+---
+## C++ : Preface
 'General purpose programming language emphasizing the design and use of type-rich, light-weight abstractions.'
 
 It is emphasized that it was designed very much with the goals of being very *general purpose*, both low and high level. *Zero overhead* principle.  
