@@ -12,6 +12,13 @@ body {
   align-items: center;
 }
 
+.titleContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 #canvasContainer {
   position: absolute;
   left: 0;
