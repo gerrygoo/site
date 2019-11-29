@@ -4,3 +4,11 @@ collections:
 
 sass:
     sass_dir: _sass
+
+
+exclude:
+  - CNAME
+  - package-lock.json
+  - package.json
+  - webpack
+  - webpack.config.js
