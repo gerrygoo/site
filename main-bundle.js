@@ -55,8 +55,8 @@
 /******/ 		"./webpack/wasm-stuff/pkg/wasm_stuff_bg.wasm": function() {
 /******/ 			return {
 /******/ 				"./wasm_stuff.js": {
-/******/ 					"__wbg_alert_9b040d9c09e6a4eb": function(p0i32,p1i32) {
-/******/ 						return installedModules["./webpack/wasm-stuff/pkg/wasm_stuff.js"].exports["__wbg_alert_9b040d9c09e6a4eb"](p0i32,p1i32);
+/******/ 					"__wbindgen_throw": function(p0i32,p1i32) {
+/******/ 						return installedModules["./webpack/wasm-stuff/pkg/wasm_stuff.js"].exports["__wbindgen_throw"](p0i32,p1i32);
 /******/ 					}
 /******/ 				}
 /******/ 			};
@@ -159,7 +159,7 @@
 /******/ 				promises.push(installedWasmModuleData);
 /******/ 			else {
 /******/ 				var importObject = wasmImportObjects[wasmModuleId]();
-/******/ 				var req = fetch(__webpack_require__.p + "" + {"./webpack/wasm-stuff/pkg/wasm_stuff_bg.wasm":"5938b086d63858d1b101"}[wasmModuleId] + ".module.wasm");
+/******/ 				var req = fetch(__webpack_require__.p + "" + {"./webpack/wasm-stuff/pkg/wasm_stuff_bg.wasm":"eeb79f57e820fc176145"}[wasmModuleId] + ".module.wasm");
 /******/ 				var promise;
 /******/ 				if(importObject instanceof Promise && typeof WebAssembly.compileStreaming === 'function') {
 /******/ 					promise = Promise.all([WebAssembly.compileStreaming(req), importObject]).then(function(items) {
