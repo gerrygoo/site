@@ -1,0 +1,28 @@
+{
+  "name": "site",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "wasm-pack build webpack/wasm-stuff | ./node_modules/.bin/webpack --watch | bundle exec jekyll serve --livereload --incremental",
+    "build": "wasm-pack build webpack/wasm-stuff | ./node_modules/.bin/webpack | bundle exec jekyll build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gerrygoo/site.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gerrygoo/site/issues"
+  },
+  "homepage": "https://github.com/gerrygoo/site#readme",
+  "dependencies": {
+    "wasm-stuff": "file:./webpack/wasm-stuff/pkg"
+  },
+  "devDependencies": {
+    "webpack": "^4.41.2",
+    "webpack-cli": "^3.3.10"
+  }
+}
